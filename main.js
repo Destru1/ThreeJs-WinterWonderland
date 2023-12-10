@@ -24,17 +24,21 @@ const minHeight = 150;
 const geometry = new THREE.BufferGeometry();
 const textureLoader = new THREE.TextureLoader();
 
-init();
+sceneSetup();
 loadModels();
 
-function init() {
+function sceneSetup() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
 
   camera.position.set(9, 4, 14);
   controls.update();
 
-  const light = new THREE.HemisphereLight(0xfffffb, 0x080820, 1);
+  const sceneColor = new THREE.Color(0x6c8bd4);
+  scene.background = sceneColor;
+
+  const light = new THREE.HemisphereLight(0xfff7e6, 0xa8c4e6, 1);
+
   scene.add(light);
 
   window.addEventListener("resize", onWindowResize);
